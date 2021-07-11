@@ -11,8 +11,13 @@ interface FakerData {
 
 }
 
+interface PhoneData {
+  phoneNumber: string,
+  phoneNumberFormat: string,
+}
+
 export const retrieveDataAction = (
-  firstName: string, 
+  firstName: string,
   lastName: string,
   middleName: string,
   jobTitle: string,
@@ -28,5 +33,15 @@ export const retrieveDataAction = (
       jobTitle,
       jobDescriptor
     }
+  }
+}
+
+
+
+export const retrievePhoneDataAction = (phoneData: PhoneData) => {
+  console.log("The phone data is", phoneData)
+  return {
+    type: FakerActionTypes.RETRIEVE_PHONE_DETAILS,
+    payload: phoneData
   }
 }

@@ -1,20 +1,36 @@
+import { useEffect, useState } from 'react';
 import faker from 'faker';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActionDispatch } from '../hooks/useActions';
 
+let phoneData = {}
 
 const FakerData = () => {
-  const { retrieveDataAction } = useActionDispatch();
-  const { firstName, lastName, middleName, jobTitle, jobDescriptor } = useTypedSelector((state) => state.faker)
+  useEffect(() => {
+    phoneData = {
+      phoneNumber: faker.phone.phoneNumber(),
+      phoneNumberFormat: faker.phone.phoneNumberFormat(),
+    }
+
+    console.log(phoneData)
+  })
+
+  const { retrieveDataAction, retrievePhoneDataAction } = useActionDispatch();
+  const { firstName, lastName, middleName, jobTitle, jobDescriptor } = useTypedSelector((state) => state.fakerName);
+  const { phoneNumber, phoneNumberFormat } = useTypedSelector((state) => state.fakerPhone);
+
 
   const onClick = () => {
     retrieveDataAction(faker.name.firstName(), faker.name.lastName(), faker.name.middleName(), faker.name.jobTitle(), faker.name.jobDescriptor());
+    retrievePhoneDataAction(phoneData)
   }
+
+  console.log("Inside the component", phoneNumber)
 
   return (
     <div>
       <h1> This is Faker Data. Click button to retrieve data </h1>
-      <button onClick={onClick} >Click Me</button>
+      <button onClick={onClick} > Click Me </button>
       <p>
         First Name: {firstName}
         <br></br>
@@ -25,6 +41,10 @@ const FakerData = () => {
         Job Title: {jobTitle}
         <br></br>
         Job Description: {jobDescriptor}
+        <br></br>
+        Phone Number: {phoneNumber}
+        <br></br>
+        Phone Number Format: {phoneNumberFormat}
       </p>
     </div>
   )

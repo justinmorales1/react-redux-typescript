@@ -1,5 +1,5 @@
 import { Action } from '../actions';
-import {FakerActionTypes} from '../action-types';
+import { FakerActionTypes } from '../action-types';
 
 
 interface FakerState {
@@ -20,9 +20,8 @@ const initialState = {
 }
 
 const fakerReducer = (state: FakerState = initialState, action: Action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FakerActionTypes.RETRIEVE_NAME_DETAILS:
-      console.log(action.payload)
       return state = action.payload;
     default:
       return state

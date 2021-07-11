@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-import fakerReducer from "./fakerReducer";
+import fakerNameReducer from "./fakerNameReducer";
+import fakerPhoneReducer from "./fakerPhoneReducer";
 
 
 const reducers = combineReducers({
-  faker: fakerReducer
+  fakerName: fakerNameReducer,
+  fakerPhone: fakerPhoneReducer
 });
 
 export default reducers;
