@@ -24,7 +24,6 @@ const intialState = {
 const randomDataReducer = (state: RandomData = intialState, action: Action) => {
   switch (action.type) {
     case FakerActionTypes.RETRIEVE_RANDOM_DETAILS:
-      console.log("Inside random data reduer", action.payload)
       return { ...action.payload };
     default:
       return state;

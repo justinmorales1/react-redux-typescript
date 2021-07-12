@@ -26,7 +26,7 @@ const FakerData = () => {
     <div>
       <h1> This is Faker Data. Click button to retrieve data </h1>
       <button onClick={onClick} > Click Me </button>
-      <ul style={{ "list-style-type": "none" }}>
+      <ul>
         <li>First Name: {firstName}</li>
         <li>Last Name : {lastName}</li>
         <li>Middle Name: {middleName}</li>
