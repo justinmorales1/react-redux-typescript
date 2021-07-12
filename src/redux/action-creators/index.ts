@@ -54,7 +54,8 @@ export const retrieveRandomData = () => {
     const { data } = await axios.get('https://random-data-api.com/api/bank/random_bank');
     console.log("The action creator data is ", data);
     dispatch({
-      type: FakerActionTypes.RETRIEVE_RANDOM_DETAILS
+      type: FakerActionTypes.RETRIEVE_RANDOM_DETAILS,
+      payload: data
     })
   }
 }
