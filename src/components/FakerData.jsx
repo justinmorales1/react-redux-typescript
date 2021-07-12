@@ -3,16 +3,12 @@ import faker from 'faker';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActionDispatch } from '../hooks/useActions';
 
-let phoneData = {}
 
 const FakerData = () => {
-  useEffect(() => {
-    phoneData = {
-      phoneNumber: faker.phone.phoneNumber(),
-      phoneNumberFormat: faker.phone.phoneNumberFormat(),
-    }
-
-  }, [])
+  const phoneData = {
+    phoneNumber: faker.phone.phoneNumber(),
+    phoneNumberFormat: faker.phone.phoneNumberFormat()
+  }
 
   const { retrieveDataAction, retrievePhoneDataAction, retrieveRandomData } = useActionDispatch();
   const { firstName, lastName, middleName, jobTitle, jobDescriptor } = useTypedSelector((state) => state.fakerName);
