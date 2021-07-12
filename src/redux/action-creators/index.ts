@@ -1,5 +1,8 @@
 import { FakerActionTypes } from "../action-types";
 import { RetrieveNameDetails } from "../actions";
+import { Action } from "../actions";
+import { Dispatch } from "redux";
+import axios from "axios";
 
 
 interface FakerData {
@@ -39,9 +42,19 @@ export const retrieveDataAction = (
 
 
 export const retrievePhoneDataAction = (phoneData: PhoneData) => {
-  console.log("The phone data is", phoneData)
   return {
     type: FakerActionTypes.RETRIEVE_PHONE_DETAILS,
     payload: phoneData
+  }
+}
+
+
+export const retrieveRandomData = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    const { data } = await axios.get('https://random-data-api.com/api/bank/random_bank');
+    console.log("The action creator data is ", data);
+    dispatch({
+      type: FakerActionTypes.RETRIEVE_RANDOM_DETAILS
+    })
   }
 }

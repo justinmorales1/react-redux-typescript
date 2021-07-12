@@ -19,6 +19,11 @@ export interface RetrievePhoneDetails {
   }
 }
 
+
+export interface RetrieveRandomDetails {
+  type: FakerActionTypes.RETRIEVE_RANDOM_DETAILS
+}
+
 export type Action = (
-  RetrieveNameDetails | RetrievePhoneDetails
+  RetrieveNameDetails | RetrievePhoneDetails | RetrieveRandomDetails
 )

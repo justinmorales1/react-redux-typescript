@@ -15,7 +15,7 @@ const FakerData = () => {
     console.log(phoneData)
   })
 
-  const { retrieveDataAction, retrievePhoneDataAction } = useActionDispatch();
+  const { retrieveDataAction, retrievePhoneDataAction, retrieveRandomData } = useActionDispatch();
   const { firstName, lastName, middleName, jobTitle, jobDescriptor } = useTypedSelector((state) => state.fakerName);
   const { phoneNumber, phoneNumberFormat } = useTypedSelector((state) => state.fakerPhone);
 
@@ -23,9 +23,8 @@ const FakerData = () => {
   const onClick = () => {
     retrieveDataAction(faker.name.firstName(), faker.name.lastName(), faker.name.middleName(), faker.name.jobTitle(), faker.name.jobDescriptor());
     retrievePhoneDataAction(phoneData)
+    retrieveRandomData();
   }
-
-  console.log("Inside the component", phoneNumber)
 
   return (
     <div>

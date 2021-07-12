@@ -14,7 +14,6 @@ const initialState = {
 const fakerPhoneReducer = (state: PhoneState = initialState, action: Action) => {
   switch (action.type) {
     case FakerActionTypes.RETRIEVE_PHONE_DETAILS:
-      console.log("The reducer phone payload is ", action.payload)
       return state = action.payload;
     default:
       return state
