@@ -11,7 +11,6 @@ interface FakerData {
   middleName: string,
   jobTitle: string,
   jobDescriptor: string
-
 }
 
 interface PhoneData {
@@ -48,7 +47,9 @@ export const retrievePhoneDataAction = (phoneData: PhoneData) => {
 
 
 export const retrieveRandomData = () => {
+  console.log("Inside random data action")
   return async (dispatch: Dispatch<Action>) => {
+    console.log("The action creator data is ");
     const { data } = await axios.get('https://random-data-api.com/api/bank/random_bank');
     console.log("The action creator data is ", data);
     dispatch({

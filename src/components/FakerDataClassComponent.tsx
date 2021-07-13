@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { retrieveDataAction } from "../redux/action-creators";
-import FakerData from './FakerData';
+import { retrieveRandomData } from "../redux/action-creators";
 
 interface Props {
-  retrieveDataAction: Function
+  retrieveRandomData: Function,
   phoneData: {
     phoneNumber: string,
     phoneNumberFormat: string
+  },
+  randomData: {
+    account_number: string,
+    bank_name: string
   }
 }
 
@@ -23,14 +26,15 @@ class FakerDataClassComponent extends React.Component<Props, State> {
 
   onButtonClick = (): void => {
     this.setState({ isTrue: !this.state.isTrue })
+    this.props.retrieveRandomData()
   }
 
   render() {
-    console.log("The store data is ", this.props.phoneData)
+    console.log("The store data is ", this.props.randomData)
     return (
       <div>
         The boolean value is  {this.state.isTrue.toString()} .
-        The faker data is {this.props.phoneData.phoneNumber}
+        The faker data is {this.props.randomData.account_number}
         <div>
           <button onClick={this.onButtonClick}>Click Me </button>
         </div>
@@ -42,13 +46,14 @@ class FakerDataClassComponent extends React.Component<Props, State> {
 
 const mapStateToProps = (state: any) => {
   return {
-    phoneData: state.fakerPhone
+    phoneData: state.fakerPhone,
+    randomData: state.randomData
   }
 }
 
 export default connect(
   mapStateToProps,
-  { retrieveDataAction }
+  { retrieveRandomData }
 )(FakerDataClassComponent);
 
 

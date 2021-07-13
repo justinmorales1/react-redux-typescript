@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import faker from 'faker';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActionDispatch } from '../hooks/useActions';
