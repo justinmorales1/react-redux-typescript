@@ -39,8 +39,6 @@ export const retrieveDataAction = (
   }
 }
 
-
-
 export const retrievePhoneDataAction = (phoneData: PhoneData) => {
   return {
     type: FakerActionTypes.RETRIEVE_PHONE_DETAILS,
