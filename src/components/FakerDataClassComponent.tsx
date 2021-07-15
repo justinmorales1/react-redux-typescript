@@ -4,14 +4,14 @@ import { retrieveRandomData } from "../redux/action-creators";
 
 interface Props {
   retrieveRandomData: Function,
-  phoneData: {
+  fakerPhone: {
     phoneNumber: string,
     phoneNumberFormat: string
   },
   randomData: {
     account_number: string,
     bank_name: string
-  }
+  },
 }
 
 interface State {
@@ -38,15 +38,14 @@ class FakerDataClassComponent extends React.Component<Props, State> {
         <div>
           <button onClick={this.onButtonClick}>Click Me </button>
         </div>
-
       </div>
     )
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: Props) => {
   return {
-    phoneData: state.fakerPhone,
+    fakerPhone: state.fakerPhone,
     randomData: state.randomData
   }
 }
