@@ -50,9 +50,13 @@ const mapStateToProps = (state: Props) => {
   }
 }
 
+const mapDispatchToProps = {
+  retrieveRandomData
+}
+
 export default connect(
   mapStateToProps,
-  { retrieveRandomData }
+  mapDispatchToProps
 )(FakerDataClassComponent);
 
 
